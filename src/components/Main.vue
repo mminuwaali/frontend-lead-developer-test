@@ -53,7 +53,7 @@ const handleLogout = () => false;
       <router-link to="/contact">
         <img :src="support" /><b>contact support</b>
       </router-link>
-      <router-link to="/logout" @click="false" v-if="auth.data?.message">
+      <router-link to="/logout" @click="false" v-if="auth.data">
         <img :src="logout" /><b>logout</b>
       </router-link>
     </div>

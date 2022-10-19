@@ -1,16 +1,16 @@
 <script setup>
-import { ref } from 'vue';
-import $ from '../stores/auth';
-import VueAuth from './Auth.vue';
-import { storeToRefs } from 'pinia';
-import user from '../assets/user.svg';
-import { RouterLink, useRoute } from 'vue-router';
+import { ref } from "vue";
+import $ from "../stores/auth";
+import VueAuth from "./Auth.vue";
+import { storeToRefs } from "pinia";
+import user from "../assets/user.svg";
+import { RouterLink, useRoute } from "vue-router";
 
-import msg from '../assets/icon/msg.svg';
-import bell from '../assets/icon/bell.svg';
+import msg from "../assets/icon/msg.svg";
+import bell from "../assets/icon/bell.svg";
 
 // emmits
-defineEmits(['close-modal']);
+defineEmits(["close-modal"]);
 
 // refs
 const showModal = ref(false);
@@ -24,8 +24,12 @@ const { path } = useRoute();
 
 // $login({ email: 'tester@kompletecare.com', password: 'password' });
 // methods
-const handleLogin = () => { showModal.value = true; };
-const handleCloseModal = () => { showModal.value = false; };
+const handleLogin = () => {
+  showModal.value = true;
+};
+const handleCloseModal = () => {
+  showModal.value = false;
+};
 </script>
 
 <template>
@@ -35,7 +39,7 @@ const handleCloseModal = () => { showModal.value = false; };
       <router-link to="/">take a tour</router-link>
       <img :src="msg" class="icon" />
       <img :src="bell" class="icon" />
-      <img :src="user" alt="" v-if="auth.data?.message" />
+      <img :src="user" alt="" v-if="auth.data" />
       <router-link v-else :to="path" @click="handleLogin">login</router-link>
     </div>
     <div class="aside">
@@ -67,7 +71,7 @@ header#header {
     justify-content: flex-end;
 
     a {
-      font-size: .8em;
+      font-size: 0.8em;
       font-weight: 900;
       color: #382f9099;
       text-decoration: none;
@@ -79,7 +83,7 @@ header#header {
       height: 2em;
       border-radius: 50%;
       object-fit: contain;
-      background-color: #FFFFFF;
+      background-color: #ffffff;
 
       &[class] {
         width: initial;
@@ -90,20 +94,20 @@ header#header {
   }
 
   .aside {
-    gap: .5em;
+    gap: 0.5em;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
 
     h2 {
-      color: #382F90;
+      color: #382f90;
       font-weight: 900;
       text-transform: capitalize;
     }
 
     span {
-      font-size: .7em;
-      color: #9FA2B4;
+      font-size: 0.7em;
+      color: #9fa2b4;
     }
   }
 }

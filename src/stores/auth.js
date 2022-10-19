@@ -1,11 +1,11 @@
-import { get, post } from '../util';
 import { reactive } from 'vue';
+import { get, post } from '../util';
 import { defineStore } from 'pinia';
 
 export default defineStore('auth', () =>
 {
   // state
-  const auth = reactive({ load: 0, error: 0, data: {} });
+  const auth = reactive({ load: 0, error: 0, data: null });
 
   // methods
   const $login = async (data) =>

@@ -37,7 +37,7 @@ const tab = computed(() => components[route.path.slice(1) || 'dashboard']);
   <aside id="aside">
     <vue-header />
     <div class="content">
-      <component :is="tab" v-if="auth.data?.message" />
+      <component :is="tab" v-if="auth.data" />
       <h1 v-else>Login to view tab content</h1>
     </div>
   </aside>
